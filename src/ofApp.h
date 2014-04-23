@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 
+#include "ball.h"
+
 class ofApp : public ofBaseApp{
 	public:
 		void setup();
@@ -18,6 +20,5 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
-        float xPos;
-        float yPos;
+        Ball theBall;
 };

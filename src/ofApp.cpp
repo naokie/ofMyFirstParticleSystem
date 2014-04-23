@@ -4,23 +4,18 @@
 void ofApp::setup(){
     ofEnableSmoothing();
     ofSetFrameRate(30);
-    
-    xPos = ofGetWindowWidth() * 0.5;
-    yPos = ofGetWindowHeight() * 0.5;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    xPos += (mouseX - xPos) * 0.1;
-    yPos += (mouseY - yPos) * 0.1;
+    theBall.moveTo(mouseX, mouseY);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofBackgroundGradient(ofColor::gray, ofColor(30, 10, 30), OF_GRADIENT_CIRCULAR);
-    ofSetColor(200, 200, 124);
-    ofFill();
-    ofCircle(xPos, yPos, 30);
+    
+    theBall.draw();
 }
 
 //--------------------------------------------------------------
@@ -45,8 +40,8 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    xPos = ofRandom(ofGetWindowWidth());
-    yPos = ofRandom(ofGetWindowHeight());
+    theBall.x = ofRandom(ofGetWindowWidth());
+    theBall.y = ofRandom(ofGetWindowHeight());
 }
 
 //--------------------------------------------------------------
