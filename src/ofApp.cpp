@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    ofEnableSmoothing();
 }
 
 //--------------------------------------------------------------
@@ -12,10 +12,22 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofBackground(ofColor::black);
-    ofSetColor(0, 0, 255);
+    ofBackgroundGradient(ofColor::white, ofColor(255, 255, 200), OF_GRADIENT_CIRCULAR);
+    
+    ofSetColor(ofColor::blue);
     ofFill();
-    ofCircle(100, 100, 30);
+    ofCircle(ofGetWindowWidth() * 0.5, ofGetWindowHeight() * 0.5, 30);
+    
+    ofEnableAlphaBlending();
+    for (int i = 0; i < 5; i++) {
+        ofSetColor(i * 8, i * 4, 255, 127);
+        ofLine(ofGetWindowWidth(), 0, i * 40 + 10, i * 40 + 10);
+        ofBezier(i * 20, i * 20, i * 300, i * 300, i * 100, i * 100, ofGetWindowWidth(), ofGetWindowHeight());
+    }
+    ofDisableAlphaBlending();
+    
+    ofSetColor(255, 0, 255);
+    ofDrawBitmapString("hi!", 100, 100);
 }
 
 //--------------------------------------------------------------
