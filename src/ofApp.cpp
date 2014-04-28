@@ -4,7 +4,7 @@
 void ofApp::setup(){
     ofEnableSmoothing();
     ofSetFrameRate(60);
-    ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
     ofSetCircleResolution(16);
 }
 
